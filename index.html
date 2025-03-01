@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English to Bengali Converter</title>
+
+    <style>
+    	*,*::before, *::after{
+    		box-sizing: border-box;
+    		margin: 0;
+    		padding: 0;
+    	}
+    	body{
+    		color: #777;
+    	}
+    	.container{
+    		width: 100%;
+    		max-width: 540px;
+    		padding: 1.225rem;
+    		margin-inline: auto;
+    	}
+    	.input-field{
+    		display: block;
+    		width: 100%;
+    		padding: 1rem;
+    		border: 2px solid #AA60C8;
+    		margin-bottom: 1.225rem;
+    	}
+    	.input-field:focus{
+
+    		border-color:#AA60C880 !important;
+    		background: #AA60C820;
+    	}
+    	strong{
+    		font-weight: 500;
+    		text-transform: uppercase;
+    	}
+    	#banglaOutput:not(:empty){
+    		border: 2px solid #444;
+    		padding: 1.225rem;
+    	}
+    </style>
+
+</head>
+<body>
+
+    <div class="container">
+        <input type="text" id="englishText" placeholder="Type English" class="input-field">
+        <div>
+        	<strong>Output:</div>
+	         <div id="banglaOutput"></div>
+     	</div>
+    </div>
+
+    <script src="english-to-bengali.js"></script>
+    <script>
+        document.getElementById("englishText").addEventListener("keyup", function() {
+            let inputText = this.value;
+            let banglaText = RubelMahmud.TranslateToBengali.Convert.parse(inputText);
+            document.getElementById("banglaOutput").innerText = banglaText;
+        });
+    </script>
+
+</body>
+</html>
+
